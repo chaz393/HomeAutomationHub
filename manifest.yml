@@ -1,0 +1,8 @@
+---
+applications:
+- name: homeautomationhub
+  memory: 256M
+  instances: 1
+  host: homeautomationhub
+  domain: chazlakinger.com
+  path: build/libs/homeautomationhub-0.1.0.jar
