@@ -8,6 +8,7 @@ public class HomeAutomationHubController {
 
 	private HomeAutomationHub homeAutomationHub = new HomeAutomationHub();
 
+	//lighting
 	@PostMapping(path = "/turnLightsOn", produces = "text/plain")
 	public String turnLightsOn() {
 		return homeAutomationHub.turnLightsOn();
