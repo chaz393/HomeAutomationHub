@@ -8,7 +8,7 @@ public class HomeAutomationHubController {
 
 	private HomeAutomationHub homeAutomationHub = new HomeAutomationHub();
 
-	//lighting
+	//lighting only
 	@PostMapping(path = "/turnLightsOn", produces = "text/plain")
 	public String turnLightsOn() {
 		return homeAutomationHub.turnLightsOn();
@@ -58,4 +58,28 @@ public class HomeAutomationHubController {
 	public String turnToDaytimeAndLockLights() {
 		return homeAutomationHub.turnToDaytimeAndLockLights();
 	}
+
+
+	//unifi video only
+    @PostMapping(path = "/enableRecording", produces = "text/plain")
+    public String enableRecording() {
+        return homeAutomationHub.enableRecording();
+    }
+
+    @PostMapping(path = "/disableRecording", produces = "text/plain")
+    public String disableRecording() {
+        return homeAutomationHub.disableRecording();
+    }
+
+
+	//lighting and unifi video
+    @PostMapping(path = "/leftHome", produces = "text/plain")
+    public String leftHome() {
+        return homeAutomationHub.leftHome();
+    }
+
+    @PostMapping(path = "/arrivedHome", produces = "text/plain")
+    public String arrivedHome() {
+        return homeAutomationHub.arrivedHome();
+    }
 }
