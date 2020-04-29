@@ -1,5 +1,7 @@
 package com.chazlakinger.homeautomationhub;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -60,24 +62,44 @@ public class HomeAutomationHubController {
 
     //unifi video only
     @PostMapping(path = "/enableRecording", produces = "text/plain")
-    public String enableRecording() {
-        return HomeAutomationHub.enableRecording();
+    public ResponseEntity enableRecording() {
+        try {
+            return ResponseEntity.ok(HomeAutomationHub.enableRecording());
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PostMapping(path = "/disableRecording", produces = "text/plain")
-    public String disableRecording() {
-        return HomeAutomationHub.disableRecording();
+    public ResponseEntity disableRecording() {
+        try {
+            return ResponseEntity.ok(HomeAutomationHub.disableRecording());
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
 
     //lighting and unifi video
     @PostMapping(path = "/leftHome", produces = "text/plain")
-    public String leftHome() {
-        return HomeAutomationHub.leftHome();
+    public ResponseEntity leftHome() {
+        try {
+            return ResponseEntity.ok(HomeAutomationHub.leftHome());
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PostMapping(path = "/arrivedHome", produces = "text/plain")
-    public String arrivedHome() {
-        return HomeAutomationHub.arrivedHome();
+    public ResponseEntity arrivedHome() {
+        try {
+            return ResponseEntity.ok(HomeAutomationHub.arrivedHome());
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }
