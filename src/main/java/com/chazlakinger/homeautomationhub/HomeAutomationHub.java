@@ -83,6 +83,11 @@ class HomeAutomationHub {
         return restTemplate.postForObject(uri, null, String.class);
     }
 
+    static String getRecordingStatus() {
+        final String uri = BASE_UNIFI_VIDEO_URI + "/getRecordingStatus";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(uri, String.class);
+    }
 
     //lighting and unifi video
     static String leftHome() {
@@ -97,7 +102,7 @@ class HomeAutomationHub {
 
         String recordingResult = enableRecording();
 
-        if (lightsResult.equals("Congratulations! You've fired the all_off event") && recordingResult.equals("\"Success\"\n")) {
+        if (lightsResult.contains("Congratulations") && recordingResult.contains("Success")) {
             System.out.println("success leaving home");
             return "success";
         } else {
@@ -110,7 +115,7 @@ class HomeAutomationHub {
         String recordingResult = disableRecording();
         String lightsResult = turnLightsOn();
 
-        if (lightsResult.equals("Congratulations! You've fired the sunset event") && recordingResult.equals("\"Success\"\n")) {
+        if (lightsResult.contains("Congratulations") && recordingResult.contains("Success")) {
             System.out.println("success arriving home");
             return "success";
         } else {

@@ -2,6 +2,7 @@ package com.chazlakinger.homeautomationhub;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -75,6 +76,16 @@ public class HomeAutomationHubController {
     public ResponseEntity disableRecording() {
         try {
             return ResponseEntity.ok(HomeAutomationHub.disableRecording());
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping(path = "/getRecordingStatus", produces = "text/plain")
+    public ResponseEntity getRecordingStatus() {
+        try {
+            return ResponseEntity.ok(HomeAutomationHub.getRecordingStatus());
         } catch (Exception e) {
             System.out.println(e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
