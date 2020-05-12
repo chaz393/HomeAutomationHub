@@ -69,6 +69,36 @@ class HomeAutomationHub {
         return restTemplate.postForObject(uri, null, String.class);
     }
 
+    static String turnRoomLightsOn() {
+        final String uri = BASE_LIGHTING_URI + "/turnRoomLightsOn";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnRoomLightsOff() {
+        final String uri = BASE_LIGHTING_URI + "/turnRoomLightsOff";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnRoomLightsOnAndLock() {
+        final String uri = BASE_LIGHTING_URI + "/turnRoomLightsOnAndLock";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnRoomLightsOffAndLock() {
+        final String uri = BASE_LIGHTING_URI + "/turnRoomLightsOffAndLock";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String lowLightDaytime() {
+        final String uri = BASE_LIGHTING_URI + "/lowLightDaytime";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
 
     //unifi video only
     static String enableRecording() {
@@ -102,7 +132,7 @@ class HomeAutomationHub {
 
         String recordingResult = enableRecording();
 
-        if (lightsResult.contains("Congratulations") && recordingResult.contains("Success")) {
+        if (lightsResult.contains("success") && recordingResult.contains("Success")) {
             System.out.println("success leaving home");
             return "success";
         } else {
@@ -115,7 +145,7 @@ class HomeAutomationHub {
         String recordingResult = disableRecording();
         String lightsResult = turnLightsOn();
 
-        if (lightsResult.contains("Congratulations") && recordingResult.contains("Success")) {
+        if (lightsResult.contains("success") && recordingResult.contains("Success")) {
             System.out.println("success arriving home");
             return "success";
         } else {

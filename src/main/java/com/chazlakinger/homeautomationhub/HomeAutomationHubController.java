@@ -60,6 +60,30 @@ public class HomeAutomationHubController {
         return HomeAutomationHub.turnToDaytimeAndLockLights();
     }
 
+    @PostMapping(path = "/turnRoomLightsOn", produces = "text/plain")
+    public String turnRoomLightsOn() {
+        return HomeAutomationHub.turnRoomLightsOn();
+    }
+
+    @PostMapping(path = "/turnRoomLightsOff", produces = "text/plain")
+    public String turnRoomLightsOff() {
+        return HomeAutomationHub.turnRoomLightsOff();
+    }
+
+    @PostMapping(path = "/turnRoomLightsOnAndLock", produces = "text/plain")
+    public String turnRoomLightsOnAndLock() {
+        return HomeAutomationHub.turnRoomLightsOnAndLock();
+    }
+
+    @PostMapping(path = "/turnRoomLightsOffAndLock", produces = "text/plain")
+    public String turnRoomLightsOffAndLock() {
+        return HomeAutomationHub.turnRoomLightsOffAndLock();
+    }
+
+    @PostMapping(path = "/lowLightDaytime", produces = "text/plain")
+    public String lowLightDaytime() {
+        return HomeAutomationHub.lowLightDaytime();
+    }
 
     //unifi video only
     @PostMapping(path = "/enableRecording", produces = "text/plain")
