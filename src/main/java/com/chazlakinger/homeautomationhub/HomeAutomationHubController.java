@@ -110,6 +110,11 @@ public class HomeAutomationHubController {
         return HomeAutomationHub.turnChazBthFanOff();
     }
 
+    @PostMapping(path = "/turnChazBthFanOn5Min", produces = "text/plain")
+    public String turnChazBthFanOn5Min() {
+        return HomeAutomationHub.turnChazBthFanOn5Min();
+    }
+
 
     //unifi video only
     @PostMapping(path = "/enableRecording", produces = "text/plain")

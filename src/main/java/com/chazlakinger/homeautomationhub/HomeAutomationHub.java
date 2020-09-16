@@ -129,6 +129,12 @@ class HomeAutomationHub {
         return restTemplate.postForObject(uri, null, String.class);
     }
 
+    static String turnChazBthFanOn5Min() {
+        final String uri = BASE_LIGHTING_URI + "/turnChazBthFanOn5Min";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
 
     //unifi video only
     static String enableRecording() {
