@@ -85,6 +85,32 @@ public class HomeAutomationHubController {
         return HomeAutomationHub.lowLightDaytime();
     }
 
+    @PostMapping(path = "/turnHallLampOn", produces = "text/plain")
+    public String turnHallLampOn() {
+        return HomeAutomationHub.turnHallLampOn();
+    }
+
+    @PostMapping(path = "/turnHallLampOff", produces = "text/plain")
+    public String turnHallLampOff() {
+        return HomeAutomationHub.turnHallLampOff();
+    }
+
+    @PostMapping(path = "/nightTask", produces = "text/plain")
+    public String nightTask() {
+        return HomeAutomationHub.nightTask();
+    }
+
+    @PostMapping(path = "/turnChazBthFanOn", produces = "text/plain")
+    public String turnChazBthFanOn() {
+        return HomeAutomationHub.turnChazBthFanOn();
+    }
+
+    @PostMapping(path = "/turnChazBthFanOff", produces = "text/plain")
+    public String turnChazBthFanOff() {
+        return HomeAutomationHub.turnChazBthFanOff();
+    }
+
+
     //unifi video only
     @PostMapping(path = "/enableRecording", produces = "text/plain")
     public ResponseEntity enableRecording() {

@@ -99,6 +99,36 @@ class HomeAutomationHub {
         return restTemplate.postForObject(uri, null, String.class);
     }
 
+    static String turnHallLampOn() {
+        final String uri = BASE_LIGHTING_URI + "/turnHallLampOn";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnHallLampOff() {
+        final String uri = BASE_LIGHTING_URI + "/turnHallLampOff";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String nightTask() {
+        final String uri = BASE_LIGHTING_URI + "/nightTask";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnChazBthFanOn() {
+        final String uri = BASE_LIGHTING_URI + "/turnChazBthFanOn";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
+    static String turnChazBthFanOff() {
+        final String uri = BASE_LIGHTING_URI + "/turnChazBthFanOff";
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForObject(uri, null, String.class);
+    }
+
 
     //unifi video only
     static String enableRecording() {
